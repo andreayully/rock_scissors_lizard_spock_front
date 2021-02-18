@@ -8,7 +8,7 @@ class UserSave extends Component{
         name: "",
         user1: {},
         user2: {},
-        actionSuccess: false,
+        actionSuccess: false
         
     }
 
@@ -38,23 +38,45 @@ class UserSave extends Component{
 
     render(){
         return(
-            <Form onSubmit={this.onSubmit}>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" 
-                    placeholder="Enter name"
-                    name="name" 
-                    value={this.state.name}
-                    onChange={this.onChange}
-                    />
-                    <Form.Text className="text-muted">
-                    Enter your name to start de Game.
-                    </Form.Text>
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form>
+            <div>
+                <h2>Player 1</h2>
+                <Form onSubmit={this.onSubmit}>
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="text" 
+                        placeholder="Enter name"
+                        name="name" 
+                        value={this.state.name}
+                        onChange={this.onChange}
+                        />
+                        <Form.Text className="text-muted">
+                        Enter your name to start de Game.
+                        </Form.Text>
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
+                <br></br>
+         {/*        <h2>Player 2</h2>
+                <Form onSubmit={this.onSubmit}>
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="text" 
+                        placeholder="Enter name"
+                        name="name" 
+                        value={this.state.name}
+                        onChange={this.onChange}
+                        />
+                        <Form.Text className="text-muted">
+                        Enter your name to start de Game.
+                        </Form.Text>
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form> */}
+            </div>         
         )
     }
 }

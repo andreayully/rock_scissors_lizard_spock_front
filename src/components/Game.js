@@ -12,11 +12,12 @@ export default class Game extends Component{
     state = {
         gameService: new gameService,
         elements: [],
-        user_1: "andreayully",
-        user_2: "ted",
+        user_1: "andreayully", //{}
+        user_2: "ted", // {}
         element_1: "",
         element_2: "",
-        match: {}
+        actionSuccess: false
+        //match: {}
 
     }
     
@@ -40,6 +41,22 @@ export default class Game extends Component{
         this.setState({
             user_1: "",
             user_2: ""
+        })
+    }
+
+    playGame= (e) => {
+        //const element_1 = this.state.elements
+
+        const newGame= {
+            user_1: this.state.user_1,
+            user_2: this.state.user_2,
+            element_user_1: this.state.element_1,
+            element_user_2: this.state.element_2
+        }
+        this.state.gameService.createMatch(newGame).then((res)=>{
+                this.setState({
+                    actionSuccess: true
+                })
         })
     }
 
