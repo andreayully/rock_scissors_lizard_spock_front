@@ -19,6 +19,21 @@ export default class Game extends Component{
         match: {}
 
     }
+    
+    componentDidMount() {
+        
+        this.elements()
+    }
+    
+    elements = async () =>{
+        const elements = await this.state.gameService.getElements();
+
+        this.setState({
+            elements: elements.data
+        })
+        console.log("elementos", this.state.elements)
+
+    }
 
     resetMatch= (e)=>{
         console.log("EXITO")
