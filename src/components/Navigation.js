@@ -16,15 +16,15 @@ const Navigation = () =>{
                         </NavLink>
                         <NavLink
                             className="nav-link"
-                            to="/game"
+                            to="/players"
                             activeClassName="active">
-                            Game
+                            Players
                         </NavLink>
                         <NavLink
                             className="nav-link"
-                            to="/match"
+                            to="/game/"
                             activeClassName="active">
-                            Match
+                            Game
                         </NavLink>
                     </Nav>
                 </Navbar.Collapse>

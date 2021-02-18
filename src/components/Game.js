@@ -5,15 +5,15 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import {Container, Row, Col} from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
 import { BiRun } from "react-icons/bi"
-import { FaCalendar } from 'react-icons/fa'
 
 
 export default class Game extends Component{
     state = {
         gameService: new gameService,
         elements: [],
-        user_1: "andreayully", //{}
-        user_2: "ted", // {}
+        //game_id: this.props.game_id,
+        user_1: "andreayully",
+        user_2: "ted", 
         element_1: "",
         element_2: "",
         actionSuccess: false
@@ -53,14 +53,10 @@ export default class Game extends Component{
             element_user_1: this.state.element_1,
             element_user_2: this.state.element_2
         }
-        this.state.gameService.createMatch(newGame).then((res)=>{
-                this.setState({
-                    actionSuccess: true
-                })
-        })
     }
 
     render(){
+        //const {game_id} = this.props
         return(
             <div>
                 <Jumbotron fluid>
