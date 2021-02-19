@@ -9,9 +9,16 @@ export default class GameService{
         return axios.get(`${this.api.url}/game/elements/`)
     }
 
-    createMatch(match){
-        return axios.post(`${this.api.url}/game/match/`, match)
+    createInitialMatch(users){
+        return axios.post(`${this.api.url}/game/initial-match/`, users)
     }
     
+    updateMatch(id, match){
+        return axios.put(`${this.api.url}/game/match/${id}/`, match)
+    }
+
+    getMatch(id){
+        return axios.get(`${this.api.url}/game/match/${id}/`)
+    }
 
 }

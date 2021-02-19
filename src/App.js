@@ -18,15 +18,12 @@ function App() {
             <Route path="/" exact component={UserList}></Route>
           <Row>
             <Col>
-              <Route path="/game" exact component={UserSave}></Route>
-            </Col>
-            <Col>
-              <Route path="/game" exact component={UserSave}></Route>
+              <Route path="/players" exact component={UserSave}></Route>
             </Col>
           </Row>
           <Row>
             <Col>
-                <Route path="/match" exact component={Game}></Route>
+                <Route path="/game/:game_id/" exact component={Game}></Route>
               </Col>
           </Row>
         </div>

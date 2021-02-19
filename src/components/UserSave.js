@@ -1,31 +1,37 @@
 import  React, { Component } from  'react';
+import Game from './Game'
 import userService from "../services/UserService"
-import { Form, Button} from "react-bootstrap"
+import gameService from "../services/GameService"
+import { Form, Button, Row, Col} from "react-bootstrap"
+import { withRouter } from "react-router";
 
 class UserSave extends Component{
     state = {
         userService: new userService(),
-        name: "",
-        user1: {},
-        user2: {},
+        gameService: new gameService(),
+        name_1: "",
+        name_2: "",
+        game_id: "",
         actionSuccess: false
         
     }
 
     onSubmit = (e) =>{
-        const newUser = {
-            name: this.state.name };
-
-        this.state.userService.createUSer(newUser).then((res)=>{
-            this.setState({
-                user1: {
-                    'name': res.data.data.name,
-                    'score': res.data.data.score
-                },
-                actionSuccess:true
+        if (this.state.name_1 && this.state.name_2){
+            const newUsers = {
+                user_1: this.state.name_1,
+                user_2: this.state.name_2
+            }
+            this.state.gameService.createInitialMatch(newUsers).then((res)=>{
+                this.setState({
+                    actionSuccess:true,
+                    game_id: res.data.data.id,
+                    name_1: "",
+                    name_2: ""
+                })
+                this.props.history.push(`/game/${this.state.game_id}/`)
             })
-            console.log(this.state.user1)
-        })
+        } 
         e.preventDefault();
     }
 
@@ -35,50 +41,52 @@ class UserSave extends Component{
         })
     }
 
-
     render(){
         return(
             <div>
-                <h2>Player 1</h2>
+                <h1>{this.state.game_id}</h1>
                 <Form onSubmit={this.onSubmit}>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" 
-                        placeholder="Enter name"
-                        name="name" 
-                        value={this.state.name}
-                        onChange={this.onChange}
-                        />
-                        <Form.Text className="text-muted">
-                        Enter your name to start de Game.
-                        </Form.Text>
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
+                <Row>
+                    <Col>
+                        <Form.Group controlId="formBasicEmail">
+                            <h2>Player 1</h2>
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="text" 
+                            placeholder="Enter name"
+                            name="name_1" 
+                            value={this.state.name}
+                            onChange={this.onChange}
+                            />
+                            <Form.Text className="text-muted">
+                            Enter your name to start de Game.
+                            </Form.Text>
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                            <Form.Group controlId="formBasicEmail">
+                            <h2>Player 2</h2>
+                                <Form.Label>Name</Form.Label>
+                                <Form.Control type="text" 
+                                placeholder="Enter name"
+                                name="name_2" 
+                                value={this.state.name}
+                                onChange={this.onChange}
+                                />
+                                <Form.Text className="text-muted">
+                                Enter your name to start de Game.
+                                </Form.Text>
+                            </Form.Group>
+                        </Col>
+                    </Row>
+                        <Col>
+                            <Button variant="primary" type="submit">
+                                Submit
+                            </Button>
+                        </Col>
                 </Form>
-                <br></br>
-         {/*        <h2>Player 2</h2>
-                <Form onSubmit={this.onSubmit}>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" 
-                        placeholder="Enter name"
-                        name="name" 
-                        value={this.state.name}
-                        onChange={this.onChange}
-                        />
-                        <Form.Text className="text-muted">
-                        Enter your name to start de Game.
-                        </Form.Text>
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                </Form> */}
             </div>         
         )
     }
 }
 
-export default UserSave;
+export default withRouter(UserSave);
