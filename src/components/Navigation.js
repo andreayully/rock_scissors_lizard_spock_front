@@ -20,12 +20,12 @@ const Navigation = () =>{
                             activeClassName="active">
                             Players
                         </NavLink>
-                        <NavLink
+                        {/* <NavLink
                             className="nav-link"
-                            to="/game/"
+                            to="/game/:game_id/"
                             activeClassName="active">
                             Game
-                        </NavLink>
+                        </NavLink> */}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

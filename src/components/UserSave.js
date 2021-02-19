@@ -4,7 +4,6 @@ import userService from "../services/UserService"
 import gameService from "../services/GameService"
 import { Form, Button, Row, Col} from "react-bootstrap"
 import { withRouter } from "react-router";
-//import { Container, } from "react-bootstrap"
 
 class UserSave extends Component{
     state = {
@@ -30,14 +29,10 @@ class UserSave extends Component{
                     name_1: "",
                     name_2: ""
                 })
-                
+                this.props.history.push(`/game/${this.state.game_id}/`)
             })
-            console.log(`/game/${this.state.game_id}/`)
-            //this.props.history.push(`/game/${this.state.game_id}/`)
-        }
-        
+        } 
         e.preventDefault();
-        
     }
 
     onChange  = e =>{
@@ -49,12 +44,12 @@ class UserSave extends Component{
     render(){
         return(
             <div>
+                <h1>{this.state.game_id}</h1>
+                <Form onSubmit={this.onSubmit}>
                 <Row>
                     <Col>
-                        <h2>Player 1</h2>
-                        <h1>{this.state.game_id}</h1>
-                        <Form onSubmit={this.onSubmit}>
                         <Form.Group controlId="formBasicEmail">
+                            <h2>Player 1</h2>
                             <Form.Label>Name</Form.Label>
                             <Form.Control type="text" 
                             placeholder="Enter name"
@@ -66,15 +61,10 @@ class UserSave extends Component{
                             Enter your name to start de Game.
                             </Form.Text>
                         </Form.Group>
-                        <Button variant="primary" type="submit">
-                            Submit
-                        </Button>
-                    </Form>
                     </Col>
                     <Col>
-                        <h2>Player 2</h2>
-                        <Form onSubmit={this.onSubmit}>
                             <Form.Group controlId="formBasicEmail">
+                            <h2>Player 2</h2>
                                 <Form.Label>Name</Form.Label>
                                 <Form.Control type="text" 
                                 placeholder="Enter name"
@@ -86,15 +76,14 @@ class UserSave extends Component{
                                 Enter your name to start de Game.
                                 </Form.Text>
                             </Form.Group>
+                        </Col>
+                    </Row>
+                        <Col>
                             <Button variant="primary" type="submit">
                                 Submit
                             </Button>
-                        </Form>
-                    </Col>
-                </Row>
-                {/* <Row>
-                    <Game game_id={this.state.game_id}/>
-                </Row> */}
+                        </Col>
+                </Form>
             </div>         
         )
     }

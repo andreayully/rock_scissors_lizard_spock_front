@@ -14,11 +14,11 @@ export default class GameService{
     }
     
     updateMatch(id, match){
-        return axios.put(`${this.api.url}/game/initial-match/`, match)
+        return axios.put(`${this.api.url}/game/match/${id}/`, match)
     }
 
     getMatch(id){
-        return axios.get(`${this.api.url}/game/initial-match/${id}/`)
+        return axios.get(`${this.api.url}/game/match/${id}/`)
     }
 
 }

@@ -23,7 +23,7 @@ function App() {
           </Row>
           <Row>
             <Col>
-                <Route path="/game" exact component={Game}></Route>
+                <Route path="/game/:game_id/" exact component={Game}></Route>
               </Col>
           </Row>
         </div>
