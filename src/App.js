@@ -13,6 +13,7 @@ function App() {
       <Router>
         <Navigation/>
         <br/>
+        <Container fluid>
         <h1>Rock, Paper, Scissors, Lizard, Spock</h1>
         <div className="container p-4">
             <Route path="/" exact component={UserList}></Route>
@@ -27,6 +28,7 @@ function App() {
               </Col>
           </Row>
         </div>
+        </Container>
       </Router>
     </div>
   );
