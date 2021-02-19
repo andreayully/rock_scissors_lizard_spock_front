@@ -14,7 +14,12 @@ Paper disproves Spock
 Spock vaporizes Rock  
 (and as it always has) Rock crushes Scissors  
 
-![alt text](https://github.com/andreayully/rock_scissors_lizard_spock_front/blob/master/spock_game.png?raw=true)
+![alt text](https://github.com/andreayully/rock_scissors_lizard_spock_front/blob/master/spock_game_3.png?raw=true)
+
+1. Enter player1 and player2 names in the players section
+2. Click *Go!* to start the game
+3. You can reset the game score with the *Reset botton*
+4. You can start a new game with the *New Game botton*
 
 **For the purpose of this project, each player's element is chosen randomly.**  
 
