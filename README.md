@@ -14,6 +14,8 @@ Paper disproves Spock
 Spock vaporizes Rock  
 (and as it always has) Rock crushes Scissors  
 
+![alt text](https://github.com/andreayully/rock_scissors_lizard_spock_front/blob/master/spock_game.png?raw=true)
+
 **For the purpose of this project, each player's element is chosen randomly.**  
 
 
